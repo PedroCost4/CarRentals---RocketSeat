@@ -1,0 +1,111 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "RentalX Documentation",
+        "description": "RentalX API Documentation",
+        "version": "1.0.0",
+        "contact": {
+            "name": "RentalX",
+            "email": "[email protected]"
+        }
+    },
+    "paths": {
+        "/categories": {
+            "post": {
+                "tags" : ["Category"],
+                "summary": "Create a category",
+                "description": "Create a new category",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "CategoryTest: SUV",
+                                    "description": "CategorySport Utility Vehicle"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Category already exists"
+                    }
+                }
+            },
+            "get" : {
+                "tags" : ["Category"],
+                "summary": "List all categories",
+                "description": "List all categories",
+                "responses" : {
+                    "200": {
+                        "description": "Success",
+                        "content" : {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/specification": {
+            "post": {
+                "summary": "Create a specification",
+                "description": "Create a new specification",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "SpecificationTest: SUV",
+                                    "description": "SpecificationSport Utility Vehicle"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
